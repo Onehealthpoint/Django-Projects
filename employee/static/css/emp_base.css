@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f5deb3;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    height: 100vh;
+    overflow: auto;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav li {
+    margin-bottom: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    display: block;
+    background-color: #f1ce8f;
+    border-radius: 5px;
+}
+
+.nav a:hover {
+    background-color: #dab056;
+}
+
+.nav a.active {
+    background-color: #a68a19;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 270px; /* Adjusted to make space for the fixed sidebar */
+    border-radius: 10px;
+    overflow: auto; /* To make sure it can scroll if content overflows */
+}
+
+header h1 {
+    text-align: center;
+    color: #228b22;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 4px solid #228b22;
+    border-top: 4px solid #228b22;
+}
+
+.dashboard {
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.dashboard h2 {
+    color: #b22222;
+    margin: 15px;
+    border-bottom: 4px solid #ffd700;
+}
+
+.welcome-message {
+    margin-top: 8px;
+    padding: 8px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.welcome-message h3 {
+    color: #228b22;
+}
+
+.welcome-message p {
+    font-size: 18px;
+}

@@ -1,0 +1,37 @@
+{% load static %}
+{% include 'nav.html' %}
+<link rel="stylesheet" href="{% static 'css/registration.css' %}">
+<body>
+    <div class="outter-container">
+        <div class="container">
+            <form class="login-form" method="POST" name="signup" onsubmit="return checkpsw()">
+                <div class="left"></div>
+                <div class="right"></div>
+                <h1>Admin Login</h1>
+                {% csrf_token %}
+                <div class="form-card email">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-card password">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="form-card submit">
+                    <input type="submit" class="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if error == 'no' %}
+        <script>
+            alert('Logged In Successfully!')
+            window.location = ('{% url 'index' %}')
+        </script>
+    {% endif %}
+    {% if error == 'yes' %}
+        <script>
+            alert('Wrong Login Credentials! \nNot Logged In')
+        </script>
+    {% endif %}
+</body>

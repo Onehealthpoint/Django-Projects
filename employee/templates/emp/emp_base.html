@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Record Management System</title>
+    <link rel="stylesheet" href="{% static 'css/emp_base.css' %}">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="{% static 'images/user-profile-icon.svg' %}" alt="Profile Picture">
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a class="{% if request.path == '/dashboard' %} active {% endif %}" href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a class="{% if request.path == '/profile' %} active {% endif %}" href="{% url 'profile' %}">Edit Profile</a></li>
+                    <li><a class="{% if request.path == '/education' %} active {% endif %}" href="{% url 'education' %}">Education</a></li>
+                    <li><a class="{% if request.path == '/edit_education' %} active {% endif %}" href="{% url 'edit_education' %}">Edit Education</a></li>
+                    <li><a class="{% if request.path == '/career' %} active {% endif %}" href="{% url 'career' %}">Career</a></li>
+                    <li><a class="{% if request.path == '/edit_career' %} active {% endif %}" href="{% url 'edit_career' %}">Edit Career</a></li>
+                    <li><a class="{% if request.path == '/logout' %} active {% endif %}" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>Employee Record Management System</h1>
+            </header>
+            <section class="dashboard">
+                {% block main %}
+
+                {% endblock %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>

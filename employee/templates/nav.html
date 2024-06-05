@@ -1,0 +1,15 @@
+{% load static %}
+<head>
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="{% static 'css/nav-style.css' %}">
+</head>
+<body>
+    <ul class="topnav">
+        <li class="topnav-logo"><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'adminlogin' %}">Admin Login</a></li>
+        <li><a href="{% url 'employeelogin' %}">Employee Login</a></li>
+        <li><a href="{% url 'registration' %}">Employee Registration</a></li>
+        {#        <li><a href="{% url 'employeelookup' %}">Employee Lookup</a></li>#}
+        <li class="topnav-right"><a href="{% url 'about-us' %}">About</a></li>
+    </ul>
+</body>

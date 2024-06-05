@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #414141;
+}
+
+ul.topnav li {
+    float: left;
+}
+
+ul.topnav li a {
+    display: block;
+    color: #cecece;
+    text-align: center;
+    font-size: large;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover{
+    background-image: linear-gradient(to right, #414141 , black, #414141);
+    transition: ease-in 5s;
+}
+
+ul.topnav li.topnav-right {
+    float: right;
+}
+
+li.topnav-logo a{
+    font-size: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    ul.topnav li.topnav-right,
+    ul.topnav li.topnav-logo,
+    ul.topnav li {
+        float: none;
+    }
+}

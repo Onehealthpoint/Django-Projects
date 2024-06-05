@@ -1,0 +1,11 @@
+{% extends 'emp/emp_base.html' %}
+
+{% block main %}
+    <h2>Employee Dashboard</h2>
+    <div class="welcome-message">
+            <h3>Welcome Back To ERMS</h3>
+            <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+    </div>
+{% endblock %}
+
+

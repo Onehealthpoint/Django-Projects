@@ -1,0 +1,68 @@
+{% extends 'emp/emp_base.html' %}
+{% load static %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <h2>Edit Profile</h2>
+    <form class="profile-form" method="POST" name="signup" onsubmit="">
+        {% csrf_token %}
+        <div class="form-card first_name">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" pattern="[\w]+" value="{{ employee.user.first_name }}">
+        </div>
+        <div class="form-card last_name">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" pattern="[\w]+" value="{{ employee.user.last_name }}">
+        </div>
+        <div class="form-card emp_code">
+            <label for="emp_code">Employee Code:</label>
+            <input type="text" name="emp_code" id="emp_code" pattern="[\d]{1,9}" value="{{ employee.employee_id }}">
+        </div>
+        <div class="form-card email">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="{{ employee.user.email }}">
+        </div>
+        <div class="form-card username">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" value="{{ employee.user.username }}">
+        </div>
+        <div class="form-card contacts">
+            <label for="contacts">Contact:</label>
+            <input type="text" name="contacts" id="contacts" value="{{ employee.contacts }}">
+        </div>
+        <div class="form-card department">
+            <label for="department">Department:</label>
+            <input type="text" name="department" id="department" value="{{ employee.employee_dept }}">
+        </div>
+        <div class="form-card gender">
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender">
+                <option value="Male" {% if employee.gender == 'Male' %} selected {% endif %}>Male</option>
+                <option value="Female" {% if employee.gender == 'Female' %} selected {% endif %}>Female</option>
+                <option value="Other" {% if employee.gender == 'Other' %} selected {% endif %}>Other</option>
+            </select>
+        </div>
+        <div class="form-card join_date">
+            <label for="join_date">Date of Joining:</label>
+            <input type="date" name="join_date" id="join_date" value="{{ employee.joining_date|date:'Y-m-d' }}">
+        </div>
+        <div class="form-card dob">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dob" id="dob" value="{{ employee.birth_date|date:'Y-m-d' }}">
+        </div>
+        <div class="form-card submit">
+            <input type="submit" class="submit" value="Update Profile">
+        </div>
+    </form>
+    {% if error == 'no' %}
+        <script>
+            alert('Profile Updated Successfully!')
+            window.location = ('{% url 'profile' %}')
+        </script>
+    {% endif %}
+    {% if error == 'yes' %}
+        <script>
+            alert('Something Went Wrong!\nProfile Not Updated!')
+        </script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% load static %}
+{% include 'nav.html' %}
+<link rel="stylesheet" href="{% static 'css/registration.css' %}">
+<body>
+    <div class="outter-container">
+        <div class="container">
+            <form class="registration-form" method="POST" name="signup" onsubmit="return checkpsw()">
+                <h1>Employee Registration</h1>
+                {% csrf_token %}
+                <div class="form-card first_name">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" id="first_name" pattern="[\w]+" required>
+                </div>
+                <div class="form-card last_name">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" id="last_name" pattern="[\w]+" required>
+                </div>
+                <div class="form-card emp_code">
+                    <label for="emp_code">Employee Code:</label>
+                    <input type="text" name="emp_code" id="emp_code" pattern="[\d]{1,9}" required>
+                </div>
+                <div class="form-card email">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-card password">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="form-card conf_password">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required>
+                </div>
+                <div class="form-card submit">
+                    <input type="submit" class="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function checkpsw() {
+            var psw = document.forms["signup"]["password"].value;
+            var conf_psw = document.forms["signup"]["confirm_password"].value;
+            if (psw !== conf_psw) {
+                alert("Passwords do not match!");
+                document.forms["signup"]["confirm_password"].focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    {% if error == 'no' %}
+        <script>
+            alert('Signup Successful!')
+            window.location = ('{% url 'employeelogin' %}')
+        </script>
+    {% endif %}
+    {% if error == 'yes' %}
+        <script>
+            alert('Something Went Wrong!')
+        </script>
+    {% endif %}
+</body>
