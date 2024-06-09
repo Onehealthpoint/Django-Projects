@@ -26,6 +26,6 @@ class EmployeeCareerForm(forms.ModelForm):
 EmployeeCareerFormSet = modelformset_factory(
     EmployeeCareer,
     form=EmployeeCareerForm,
-    extra=0,
+    extra=1,
     can_delete=True
 )

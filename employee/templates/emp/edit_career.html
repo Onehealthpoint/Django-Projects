@@ -1,1 +1,50 @@
 {% extends 'emp/emp_base.html' %}
+{% load static %}
+
+{% block main %}
+
+    {% if formset.non_form_errors %}
+        <div class="error">
+            {{ formset.non_form_errors }}
+        </div>
+    {% endif %}
+
+    <link rel="stylesheet" href="{% static 'css/show_info.css' %}">
+    <h2>Edit Career</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        {% for form in formset %}
+            <div class="group">
+                <ol>
+                    {{ form.id }}
+                    <li>
+                        <label class="label">Company:</label>
+                        {{ form.company }}
+                    </li>
+                    <li>
+                        <label class="label">Designation:</label>
+                        {{ form.designation }}
+                    </li>
+                    <li>
+                        <label class="label">Join year:</label>
+                        {{ form.joining_date }}
+                    </li>
+                    <li>
+                        <label class="label">Leaving Date:</label>
+                        {{ form.leaving_date }}
+                    </li>
+                    {% if formset.can_delete and forloop.last == False %}
+                        <li>
+                            <label for="{{ form.prefix }}-DELETE">Delete:</label>
+                            {{ form.DELETE }}
+                        </li>
+                    {% endif %}
+                </ol>
+            </div>
+        {% endfor %}
+        <div class="submit-row">
+            <button type="submit">Save Changes</button>
+        </div>
+    </form>
+{% endblock %}

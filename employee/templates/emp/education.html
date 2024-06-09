@@ -4,26 +4,30 @@
 {% block main %}
     <link rel="stylesheet" href="{% static 'css/show_info.css' %}">
     <h2>Education</h2>
-    {% for edu in education %}
-        <div class="education" >
-            <ol>
-                <li>
-                    <p class="label">Course:</p>
-                    <p class="info">{{ edu.degree }}</p>
-                </li>
-                <li>
-                    <p class="label">Institute:</p>
-                    <p class="info">{{ edu.institute }}</p>
-                </li>
-                <li>
-                    <p class="label">Year:</p>
-                    <p class="info">{{ edu.passing_year }}</p>
-                </li>
-                <li>
-                    <p class="label">Grade:</p>
-                    <p class="info">{{ edu.score }}</p>
-                </li>
-            </ol>
-        </div>
-    {% endfor %}
+    {% if length_of_formset == 0 %}
+        <h3>Looks like no Education Information was found!</h3>
+    {% else %}
+        {% for edu in education %}
+            <div class="group" >
+                <ol>
+                    <li>
+                        <p class="label">Course:</p>
+                        <p class="info">{{ edu.degree }}</p>
+                    </li>
+                    <li>
+                        <p class="label">Institute:</p>
+                        <p class="info">{{ edu.institute }}</p>
+                    </li>
+                    <li>
+                        <p class="label">Year:</p>
+                        <p class="info">{{ edu.passing_year }}</p>
+                    </li>
+                    <li>
+                        <p class="label">Grade:</p>
+                        <p class="info">{{ edu.score }}</p>
+                    </li>
+                </ol>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

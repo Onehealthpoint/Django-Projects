@@ -10,35 +10,31 @@
     {% endif %}
 
     <link rel="stylesheet" href="{% static 'css/show_info.css' %}">
-    <h2>Education</h2>
+    <h2>Edit Education</h2>
     <form method="POST">
         {% csrf_token %}
         {{ formset.management_form }}
         {% for form in formset %}
-            <div class="education">
+            <div class="group">
                 <ol>
                     {{ form.id }}
                     <li>
                         <label class="label">Degree:</label>
-                        {{ form.degree.errors }}
                         {{ form.degree }}
                     </li>
                     <li>
                         <label class="label">Institute:</label>
-                        {{ form.institute.errors }}
                         {{ form.institute }}
                     </li>
                     <li>
                         <label class="label">Passing year:</label>
-                        {{ form.passing_year.errors }}
                         {{ form.passing_year }}
                     </li>
                     <li>
                         <label class="label">Score:</label>
-                        {{ form.score.errors }}
                         {{ form.score }}
                     </li>
-                    {% if formset.can_delete %}
+                    {% if formset.can_delete and forloop.last == False %}
                         <li>
                             <label for="{{ form.prefix }}-DELETE">Delete:</label>
                             {{ form.DELETE }}
@@ -47,7 +43,7 @@
                 </ol>
             </div>
         {% endfor %}
-        <div>
+        <div class="submit-row">
             <button type="submit">Save Changes</button>
         </div>
     </form>

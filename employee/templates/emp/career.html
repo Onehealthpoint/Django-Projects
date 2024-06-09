@@ -1,1 +1,33 @@
 {% extends 'emp/emp_base.html' %}
+{% load static %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/show_info.css' %}">
+    <h2>Career</h2>
+    {% if length_of_formset == 0 %}
+        <h3>Looks like no Career Information was found!</h3>
+    {% else %}
+        {% for career in careers %}
+            <div class="group" >
+                <ol>
+                    <li>
+                        <p class="label">Company:</p>
+                        <p class="info">{{ career.company }}</p>
+                    </li>
+                    <li>
+                        <p class="label">Designation:</p>
+                        <p class="info">{{ career.designation }}</p>
+                    </li>
+                    <li>
+                        <p class="label">Join Date:</p>
+                        <p class="info">{{ career.joining_date }}</p>
+                    </li>
+                    <li>
+                        <p class="label">Leaving Date:</p>
+                        <p class="info">{{ career.leaving_date }}</p>
+                    </li>
+                </ol>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

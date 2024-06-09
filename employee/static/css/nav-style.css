@@ -7,7 +7,7 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #414141;
+    background-color: #f5deb3;
 }
 
 ul.topnav li {
@@ -16,7 +16,7 @@ ul.topnav li {
 
 ul.topnav li a {
     display: block;
-    color: #cecece;
+    color: #000;
     text-align: center;
     font-size: large;
     padding: 14px 20px;
@@ -24,7 +24,8 @@ ul.topnav li a {
 }
 
 ul.topnav li a:hover{
-    background-image: linear-gradient(to right, #414141 , black, #414141);
+    background-image: linear-gradient(to right, #f1ce8f, #dab056);
+    font-size: larger;
     transition: ease-in 5s;
 }
 

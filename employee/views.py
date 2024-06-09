@@ -103,34 +103,50 @@ def profile(request):
 
 
 def education(request):
-    error = ''
     user = request.user
     education = EmployeeEducation.objects.filter(user=user)
-    return render(request, 'emp/education.html', {'education': education, 'error': error})
+    return render(request, 'emp/education.html', {'education': education, 'length_of_formset': len(education)})
 
 
 def edit_education(request):
-    user = request.user
     error = ''
+    user = request.user
     if request.method == 'POST':
-        formset = EmployeeEducationFormSet(request.POST, request.FILES,
-                                           queryset=EmployeeEducation.objects.filter(user=user))
+        formset = EmployeeEducationFormSet(request.POST, queryset=EmployeeEducation.objects.filter(user=user))
+        if formset.is_valid():
+            instances = formset.save(commit=False)
+            for instance in instances:
+                instance.user = user  # Ensure the user is set correctly
+                instance.save()
+            for obj in formset.deleted_objects:
+                obj.delete()
+            return redirect('edit_education')  # Replace with your success URL
+    else:
+        formset = EmployeeEducationFormSet(queryset=EmployeeEducation.objects.filter(user=user))
+
+    return render(request, 'emp/edit_education.html', {'formset': formset})
+
+
+def career(request):
+    user = request.user
+    careers = EmployeeCareer.objects.filter(user=user)
+    return render(request, 'emp/career.html', {'careers': careers, 'length_of_formset': len(careers)})
+
+
+def edit_career(request):
+    error = ''
+    user = request.user
+    if request.method == 'POST':
+        formset = EmployeeCareerFormSet(request.POST, queryset=EmployeeCareer.objects.filter(user=user))
         if formset.is_valid():
             instances = formset.save(commit=False)
             for instance in instances:
                 instance.user = user
                 instance.save()
-            formset.save_m2m()
-            return redirect('edit_education')
+            for obj in formset.deleted_objects:
+                obj.delete()
+            return redirect('edit_career')
     else:
-        formset = EmployeeEducationFormSet(queryset=EmployeeEducation.objects.filter(user=user))
+        formset = EmployeeCareerFormSet(queryset=EmployeeCareer.objects.filter(user=user))
 
-    return render(request, 'emp/edit_education.html', {'formset': formset, 'error': error})
-
-
-def career(request):
-    return render(request, 'emp/career.html')
-
-
-def edit_career(request):
-    return render(request, 'emp/edit_career.html')
+    return render(request, 'emp/edit_career.html', {'formset': formset})
