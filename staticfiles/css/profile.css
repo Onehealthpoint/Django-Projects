@@ -1,0 +1,96 @@
+div.first-name{
+    grid-area: fname;
+}
+
+div.last-name{
+    grid-area: lname;
+}
+
+div.emp-code{
+    grid-area: empcode;
+}
+
+div.email{
+    grid-area: email;
+}
+
+div.username{
+    grid-area: uname;
+}
+
+div.contacts{
+    grid-area: contacts;
+}
+
+div.department{
+    grid-area: dept;
+}
+
+div.gender{
+    grid-area: gender;
+}
+
+div.join_date{
+    grid-area: join_date;
+}
+
+div.dob{
+    grid-area: dob;
+}
+
+.profile-form{
+    display: grid;
+    grid-gap: 5px 0px;
+    grid-template-areas:
+        'fname lname'
+        'empcode email'
+        'uname contacts'
+        'dept gender'
+        'join_date dob';
+
+    width: 800px;
+    margin: 5px 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+div.form-card{
+    display:block;
+    width: 90%;
+    margin: 0 0;
+    padding: 10px;
+}
+
+label{
+    font-weight: bold;
+    float: left;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="password"],
+.profile-form input[type="date"]{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.profile-form select{
+    width: 107%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.profile-form input[type="submit"]{
+    width:40%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,148 @@
+div.outter-container{
+    display: flex;
+    justify-content: center;
+}
+
+div.container h1{
+    grid-area: header;
+    text-align: center;
+}
+
+div.first-name{
+    grid-area: fname;
+}
+
+div.last-name{
+    grid-area: lname;
+}
+
+div.emp-code{
+    grid-area: empcode;
+}
+
+div.email{
+    grid-area: email;
+}
+
+div.password{
+    grid-area: password;
+}
+
+div.conf-password{
+    grid-area: confpassword;
+}
+
+div.left{
+    grid-area: left;
+    width: 50px;
+}
+
+div.right{
+    grid-area: right;
+    width: 50px;
+}
+
+.login-form div.submit{
+    grid-area: submit;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.registration-form div.submit {
+    grid-area: submit;
+    max-width: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+.registration-form{
+    display: grid;
+    grid-gap: 5px 0px;
+    grid-template-areas:
+        'header header'
+        'fname lname'
+        'empcode email'
+        'password confpassword'
+        'submit submit';
+    
+
+    width: 800px;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.login-form{
+    display: grid;
+    grid-gap: 5px 0px;
+    grid-template-areas:
+        'left header right'
+        'left email right'
+        'left password right'
+        'left submit right';
+
+    max-width: 100%;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+div.form-card{
+    display:block;
+    width: 90%;
+    margin: 0 0;
+    padding: 10px;
+}
+
+label{
+    font-weight: bold;
+    float: left;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.registration-form input[type="submit"]{
+    width:40%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-form input[type="submit"]{
+    width:40%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-form .email{
+    width: 100%;
+}
+
+.login-form .password{
+    width: 100%;
+}

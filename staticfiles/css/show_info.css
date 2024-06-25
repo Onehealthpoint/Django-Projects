@@ -1,0 +1,52 @@
+.group {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px grey;
+    padding-left: 40px;
+}
+
+ol{
+    list-style-type: none;
+}
+
+p{
+    display: inline-flex;
+}
+
+label{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.info{
+    font-size: large;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input[type=text], input[type=date], input[type=number], select{
+    width: 20%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type=checkbox]{
+    border-radius: 5px;
+}
+
+button[type=submit]{
+    width: 20%;
+    padding: 10px;
+    margin: 0px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submit-row{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
