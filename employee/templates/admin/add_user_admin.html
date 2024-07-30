@@ -1,0 +1,49 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/show_info.css' %}">
+    <h2>Add User</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="group">
+            <ol>
+                <li>
+                    <label class="label">First Name:</label>
+                    <input type="text" name="first_name" required>
+                </li>
+                <li>
+                    <label class="label">Last Name:</label>
+                    <input type="text" name="last_name" required>
+                </li>
+                <li>
+                    <label class="label">Username:</label>
+                    <input type="text" name="username" required>
+                </li>
+                <li>
+                    <label class="label">Email:</label>
+                    <input type="text" name="email" required>
+                </li>
+                <li>
+                    <label class="label">Password:</label>
+                    <input type="password" name="password" required>
+                </li>
+            </ol>
+        </div>
+        <div class="submit-row add-user">
+            <button type="submit">Add User</button>
+        </div>
+    </form>
+{% if error == 'no' %}
+    <script>
+        alert('User Added Successfully!')
+        window.location = ('{% url 'users' %}')
+    </script>
+{% endif %}
+{% if error == 'yes' %}
+    <script>
+        alert('User Already Exists!')
+        window.location = ('{% url 'add_user_admin' %}')
+    </script>
+{% endif %}
+{% endblock %}

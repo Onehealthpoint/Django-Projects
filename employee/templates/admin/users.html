@@ -1,0 +1,76 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+
+{% block main %}
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.0/css/buttons.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.2/css/dataTables.dataTables.css" />
+
+    <h2>Employee Details</h2>
+        <div class="table-container">
+        <table id="mytable">
+            <thead>
+                <tr>
+                    <th>Emp_Code</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Contact No.</th>
+                    <th>Joining Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.employee_id }}</td>
+                    <td>{{ user.user.first_name }}</td>
+                    <td>{{ user.user.last_name }}</td>
+                    <td>{{ user.user.username }}</td>
+                    <td>{{ user.contacts }}</td>
+                    <td>{{ user.joining_date }}</td>
+                    <td>
+                        <a href="{% url 'delete_user' user.user.id %}"
+                           onclick="return confirm('Are you sure?\nDelete this user?')"
+                            style="color: red">
+                            Delete
+                        </a><br>
+                        <a href="{% url 'update_career_admin' user.user.id %}"
+                            style="color: blue">
+                            Update Career
+                        </a><br>
+                        <a href="{% url 'update_education_admin' user.user.id %}"
+                            style="color: green">
+                            Update Education
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{% url 'add_user_admin' %}"
+        style="text-decoration: none;">
+        <button style="padding: 10px 14px; border: 2px solid #b7b7b7">ADD USER</button>
+    </a>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.1.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.0/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.0/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.0/js/buttons.html5.min.js"></script>
+
+    <script>
+    new DataTable('#mytable', {
+            layout: {
+                topStart: {
+                    buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+                }
+            }
+        });
+    </script>
+{% endblock %}

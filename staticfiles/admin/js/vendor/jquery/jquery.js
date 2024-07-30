@@ -9064,7 +9064,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 				if ( !conv ) {
 					for ( conv2 in converters ) {
 
-						// If conv2 outputs current
+						// If conv2 output current
 						tmp = conv2.split( " " );
 						if ( tmp[ 1 ] === current ) {
 

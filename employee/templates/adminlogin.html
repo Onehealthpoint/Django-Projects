@@ -9,9 +9,9 @@
                 <div class="right"></div>
                 <h1>Admin Login</h1>
                 {% csrf_token %}
-                <div class="form-card email">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" required>
+                <div class="form-card username">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" required>
                 </div>
                 <div class="form-card password">
                     <label for="password">Password:</label>
@@ -26,7 +26,7 @@
     {% if error == 'no' %}
         <script>
             alert('Logged In Successfully!')
-            window.location = ('{% url 'index' %}')
+            window.location = ('{% url 'adminpanel' %}')
         </script>
     {% endif %}
     {% if error == 'yes' %}

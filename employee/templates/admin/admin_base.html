@@ -15,13 +15,9 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li><a class="{% if request.path == '/dashboard' %} active {% endif %}" href="{% url 'dashboard' %}">Dashboard</a></li>
-                    <li><a class="{% if request.path == '/profile' %} active {% endif %}" href="{% url 'profile' %}">Edit Profile</a></li>
-                    <li><a class="{% if request.path == '/education' %} active {% endif %}" href="{% url 'education' %}">Education</a></li>
-                    <li><a class="{% if request.path == '/edit_education' %} active {% endif %}" href="{% url 'edit_education' %}">Edit Education</a></li>
-                    <li><a class="{% if request.path == '/career' %} active {% endif %}" href="{% url 'career' %}">Career</a></li>
-                    <li><a class="{% if request.path == '/edit_career' %} active {% endif %}" href="{% url 'edit_career' %}">Edit Career</a></li>
-                    <li><a class="{% if request.path == '/change_password' %} active {% endif %}" href="{% url 'change_password' %}">Change Password</a></li>
+                    <li><a class="{% if request.path == '/adminpanel' %} active {% endif %}" href="{% url 'adminpanel' %}">Home</a></li>
+                    <li><a class="{% if request.path == '/users' %} active {% endif %}" href="{% url 'users' %}">All Employees</a></li>
+                    <li><a class="{% if request.path == '/change_password_admin' %} active {% endif %}" href="{% url 'change_password_admin' %}">Change Password</a></li>
                     <li><a class="{% if request.path == '/logout' %} active {% endif %}" href="{% url 'logout' %}">Logout</a></li>
                 </ul>
             </nav>
