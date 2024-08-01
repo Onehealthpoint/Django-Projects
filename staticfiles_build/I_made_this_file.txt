@@ -1,0 +1,1 @@
+I built this file to add the "staticfiles_build" dir, because I dont know how else to add dir to a repo.
