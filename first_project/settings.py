@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'first_project.wsgi.application'
+WSGI_APPLICATION = 'first_project.wsgi.chat'
 
 
 # Database
@@ -119,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # Added Manually
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles_build'
 
 
 # Default primary key field type
